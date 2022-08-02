@@ -1,0 +1,35 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Styles
+
+@import 'carousel';
+
+.pagination {
+    justify-content:center;
+  }
+
+
+
+.part_desc {
+  dt, dd{
+    align-items: flex-start;
+    display: inline-block;
+  }
+  dt {
+
+    position: absolute;
+    
+  }
+  dd {
+    padding-left: 200px;
+    max-width: 500px;
+  }
+}
+
