@@ -17,18 +17,18 @@ class CarFactory extends Factory
     public function definition()
     {
         return [
-            'manufacture_id' => $this->faker->numberBetween(1, 10),
-            'model'=> $this->faker->name,
-            'fuel_type' => 'petrol',
+            'manufacture_id' => 1,
+            'model'=> 'E46',
+            'fuel_type' => 'diesel',
             'wheel_placement' => 'left',
-            'engine_code' => $this->faker->name,
+            'engine_code' => 'N47',
             'gearbox' => 'manual',
             'body_type' => 'coupe',
             'color' => 'topaz blue',
             'km' => $this->faker->numberBetween(1, 200000),
-            'year' => $this->faker->numberBetween(1900, 2021),
-            'engine_displacement' => $this->faker->numberBetween(1000, 5000),
-            'power' => $this->faker->numberBetween(66, 1000)
+            'year' => $this->faker->numberBetween(1996, 2005),
+            'engine_displacement' => $this->faker->numberBetween(2000, 3000),
+            'power' => $this->faker->numberBetween(100, 200)
 
         ];
     }

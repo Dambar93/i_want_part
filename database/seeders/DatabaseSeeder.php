@@ -10,6 +10,8 @@ use \App\Models\Manufacture;
 use \App\Models\Part;
 use \App\Models\Picture;
 use \App\Models\Car;
+use App\Models\Role;
+
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -36,12 +38,31 @@ class DatabaseSeeder extends Seeder
 
         // ]);  
 
-        Category::factory(10)->create();
-        Manufacture::factory(10)->create();
+        Category::factory(1)->create();
+        Category::factory(1)->create([
+            'category_id' => 1,
+            'name' => 'Front doors'
+        ]);
+        Category::factory(1)->create([
+            'category_id' => 1,
+            'name' => 'Rear doors'
+        ]);
+        Manufacture::factory(1)->create();
         Car::factory(10)->create();
         Part::factory(10)->create();
         // Picture::factory(10)->create();
-        
+        // User::factory(1)->create([
+        //     'email' => 'test@test.test',
+        //     'password' => Hash::make('12345678')
+        // ]);
+        Role::factory(1)->create(['name' => 'ROLE_ADMIN']);
+        Role::factory(1)->create(['name' => 'ROLE_USER']);
+        User::factory(1)->create([
+            'name' => 'Page God',
+            'email' => 'admin@admin.admin',
+            'password' => Hash::make('12345678'),
+            'role' => User::ROLE_ADMIN
+        ]);
         
     }
 }

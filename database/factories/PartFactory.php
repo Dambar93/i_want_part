@@ -24,8 +24,8 @@ class PartFactory extends Factory
             'sku' => $this->faker->name,
             'condition' => "used",
             'part_code' => $this->faker->numberBetween(1000, 10000),
-            'category_id' => $this->faker->numberBetween(1, 10),
-            'manufacture_id' => $this->faker->numberBetween(1, 10),
+            'category_id' => $this->faker->numberBetween(2, 3),
+            'manufacture_id' => 1,
             'car_id' => $this->faker->numberBetween(1, 10),
            
 

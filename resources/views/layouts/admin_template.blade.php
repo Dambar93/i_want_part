@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app_admin')
 
 @section('content')
-    <div id="app" class="container">
+    <div id="app" >
         @include('layouts.admin_navbar')
 
         @yield('body')

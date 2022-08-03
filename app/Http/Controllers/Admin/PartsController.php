@@ -31,7 +31,7 @@ class PartsController extends Controller
     {
         if ($request->isMethod('POST')) {
             
-            $data=$request->validated();
+            $data=$request->all();
             $parts = Part::create($data);
             $category = Category::find($request->post('category_id'));
             $parts->category()->associate($category);
