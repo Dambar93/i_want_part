@@ -47,14 +47,21 @@ class DatabaseSeeder extends Seeder
             'category_id' => 1,
             'name' => 'Rear doors'
         ]);
+        
         Manufacture::factory(1)->create();
         Car::factory(10)->create();
-        Part::factory(10)->create();
+        Part::factory(20)->create();
         // Picture::factory(10)->create();
         // User::factory(1)->create([
         //     'email' => 'test@test.test',
         //     'password' => Hash::make('12345678')
         // ]);
+        for($i=1; $i < 21; $i++){
+            Picture::factory(1)->create([
+                'part_id' => $i
+            ]
+            );
+        }
         Role::factory(1)->create(['name' => 'ROLE_ADMIN']);
         Role::factory(1)->create(['name' => 'ROLE_USER']);
         User::factory(1)->create([

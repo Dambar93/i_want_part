@@ -17,7 +17,7 @@ class PartFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name,
+            'title' => 'BMW E46 Doors',
             'comment' => $this->faker->text,
             'price' => $this->faker->numberBetween(1, 1000),
             'quantity' => $this->faker->numberBetween(1, 3),

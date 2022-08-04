@@ -14,10 +14,6 @@ class Car extends Model
         'body_type', 'color', 'km', 'engine_displacement', 'power','year'
     ];
 
-    public function car()
-    {
-        return $this->hasMany(Parts::class);
-    }
 
     public function manufacture()
     {

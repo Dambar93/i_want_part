@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\User\PartsController as UserPartsController;
 use App\Http\Controllers\Admin\PartsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CarController;
@@ -65,3 +66,5 @@ Route::middleware([\App\Http\Middleware\RoleMiddleware::class . ':' . \App\Model
     Route::match(['get','post'],'/admin/manufacture/create', [ManufactureController::class, 'create'])->name('admin.manufacture.create');
     Route::delete('/admin/manufacture/delete/{manufacture}', [ManufactureController::class, 'destroy'])->name('admin.manufacture.destroy');
 });
+
+// Route::get('/part-list',[UserPartsController::class,'list'])->name('app.part-list');

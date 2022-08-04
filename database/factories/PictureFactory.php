@@ -17,8 +17,8 @@ class PictureFactory extends Factory
     public function definition()
     {
         return [
-            'image' => $this->faker->name,
-            'part_id' => 1
+            'image' => 'images/parts/imageForAll.jpg',
+            
         ];
     }
 }

@@ -10,7 +10,6 @@ use App\Models\Car;
 use App\Models\Picture;
 use App\Models\Category;
 use App\Models\Manufacture;
-use App\Http\Requests\PartRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
