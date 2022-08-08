@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\User\PartController;
 use App\Http\Controllers\API\PartController;
+use App\Http\Controllers\API\TokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,9 @@ use App\Http\Controllers\API\PartController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('part-list/new','App\Http\Controllers\API\PartController@new');
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('part-list/new','App\Http\Controllers\API\PartController@new');
+    
+});
 Route::apiResource('part-list', 'App\Http\Controllers\API\PartController');
+Route::post('getToken','App\Http\Controllers\API\TokenController@getToken');
