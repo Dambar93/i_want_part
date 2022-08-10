@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\ManufactureController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    Route::get('login', [\App\Http\Controllers\AuthController::class, 'show']);
 });
 
 Route::middleware('guest')->group(function () {

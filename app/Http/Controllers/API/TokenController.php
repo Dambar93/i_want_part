@@ -33,7 +33,10 @@ class TokenController extends Controller
         }
 
         return [
-            'token' => $user->createToken('login')->plainTextToken
+            'token' => $user->createToken('login')->plainTextToken,
+            'user_id' => $user-> id,
+            'user_name' => $user-> name,
+            'user_email' => $user-> email,
         ];
     }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\User\PartController;
 use App\Http\Controllers\API\PartController;
 use App\Http\Controllers\API\TokenController;
+use App\Http\Controllers\API\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     
 });
 Route::apiResource('part-list', 'App\Http\Controllers\API\PartController');
-Route::post('getToken','App\Http\Controllers\API\TokenController@getToken');
+Route::post('get-token','App\Http\Controllers\API\TokenController@getToken');
+Route::post('register','App\Http\Controllers\API\RegisterController@register');
+Route::post('order','App\Http\Controllers\API\OrderController@create');
