@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PartsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CarController;
 use App\Http\Controllers\Admin\ManufactureController;
+use App\Http\Controllers\Admin\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,10 @@ Route::middleware([\App\Http\Middleware\RoleMiddleware::class . ':' . \App\Model
     Route::get('/admin/manufactures', [ManufactureController::class, 'list'])->name('admin.manufacture.list');
     Route::match(['get','post'],'/admin/manufacture/create', [ManufactureController::class, 'create'])->name('admin.manufacture.create');
     Route::delete('/admin/manufacture/delete/{manufacture}', [ManufactureController::class, 'destroy'])->name('admin.manufacture.destroy');
+
+    Route::get('/admin/orders', [OrderController::class, 'list'])->name('admin.order.list');
+    Route::get('/admin/order/show/{order}', [OrderController::class, 'show'])->name('admin.order.show');
+
 });
 
 // Route::get('/part-list',[UserPartsController::class,'list'])->name('app.part-list');

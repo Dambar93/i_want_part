@@ -51,12 +51,15 @@ class DatabaseSeeder extends Seeder
         Manufacture::factory(1)->create();
         Car::factory(10)->create();
         Part::factory(20)->create();
+        Part::factory(20)->create([
+            'condition' => 'new'
+        ]);
         // Picture::factory(10)->create();
         // User::factory(1)->create([
         //     'email' => 'test@test.test',
         //     'password' => Hash::make('12345678')
         // ]);
-        for($i=1; $i < 21; $i++){
+        for($i=1; $i < 41; $i++){
             Picture::factory(1)->create([
                 'part_id' => $i
             ]
@@ -65,10 +68,17 @@ class DatabaseSeeder extends Seeder
         Role::factory(1)->create(['name' => 'ROLE_ADMIN']);
         Role::factory(1)->create(['name' => 'ROLE_USER']);
         User::factory(1)->create([
-            'name' => 'Page God',
+            'name' => 'Page Admin',
             'email' => 'admin@admin.admin',
             'password' => Hash::make('12345678'),
             'role' => User::ROLE_ADMIN
+        ]);
+
+        User::factory(1)->create([
+            'name' => 'Damian Baranovski',
+            'email' => 'dambar@gmail.com',
+            'password' => Hash::make('12345678'),
+            'role' => User::ROLE_USER
         ]);
         
     }

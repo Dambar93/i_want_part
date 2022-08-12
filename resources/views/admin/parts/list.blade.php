@@ -32,7 +32,7 @@
                 <th scope="row"> 
                     
                     @if (isset($part->pictures[0]->image))
-                       <img src="{{asset($part->pictures[0]->image)}}" class="img-fluid" style="max-width: 150px;  "alt=""> 
+                       <img src="{{asset($part->pictures[0]->image)}}" class="img-fluid" style="max-width: 150px;"alt=""> 
                        
                     @endif
                     

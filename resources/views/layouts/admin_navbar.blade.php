@@ -20,6 +20,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{{url('admin/manufactures')}}">Manufacture</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('admin/orders')}}">Orders</a>
+      </li>
       @auth
           <li class="nav-item">
               <a class="nav-link" href="{{ route('logout') }}">Logout</a>

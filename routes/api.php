@@ -23,9 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('part-list/new','App\Http\Controllers\API\PartController@new');
-    
+    Route::get('order','App\Http\Controllers\API\OrderController@listLogged');
 });
 Route::apiResource('part-list', 'App\Http\Controllers\API\PartController');
 Route::post('get-token','App\Http\Controllers\API\TokenController@getToken');
 Route::post('register','App\Http\Controllers\API\RegisterController@register');
 Route::post('order','App\Http\Controllers\API\OrderController@create');
+Route::post('find-order','App\Http\Controllers\API\OrderController@findOrder');
+

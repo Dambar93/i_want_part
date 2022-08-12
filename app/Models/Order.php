@@ -12,4 +12,14 @@ class Order extends Model
     protected $fillable = [
         'unique_id', 'email', 'status', 'address_id'
     ];
+
+    public function address()
+    {
+        return $this -> belongsTo(Address::class, 'address_id');
+    }
+
+    public function items()
+    {
+        return $this -> hasMany(OrderItem::class);
+    }
 }

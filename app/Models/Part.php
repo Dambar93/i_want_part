@@ -38,4 +38,9 @@ class Part extends Model
     {
         return $this->hasMany(Picture::class);
     }
+
+    public function orderItem()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

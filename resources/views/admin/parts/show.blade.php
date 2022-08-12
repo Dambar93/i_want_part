@@ -4,6 +4,7 @@
 
 <div class="d-flex justify-content-between">
   <div class="part_desc">
+  <a class="btn btn-primary" href="{{route('admin.part.edit', $part->id)}}"> Edit</a> </br>
       <span>Part info: </span>
       <dl>
         <div><dt>ID:</dt><dd>{{$part-> id}}</dd></div>

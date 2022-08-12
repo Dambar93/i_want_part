@@ -21,7 +21,7 @@ class PartFactory extends Factory
             'comment' => $this->faker->text,
             'price' => $this->faker->numberBetween(1, 1000),
             'quantity' => $this->faker->numberBetween(1, 3),
-            'sku' => $this->faker->name,
+            'sku' => $this->faker->numberBetween(1, 40). ' Box',
             'condition' => "used",
             'part_code' => $this->faker->numberBetween(1000, 10000),
             'category_id' => $this->faker->numberBetween(2, 3),

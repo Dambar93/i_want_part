@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('zip');
             $table->string('comment')->nullable();
+            $table->string('tracking')->nullable();
             $table->timestamps();
         });
     }
