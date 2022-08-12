@@ -31,10 +31,7 @@ class PartsController extends Controller
             $parts = Part::create($data);
             $category = Category::find($request->post('category_id'));
             $parts->category()->associate($category);
-            // $imagePath = $request->file('part_image')->store('public/parts');
-            //$parts->codes=$request->post('other_code');
-            // $parts->pictures()->image = $imagePath;
-
+            
             foreach ($request->file('image') as $imagefile) {
                 $image = new Picture();
                 $path = $imagefile->store('/images/parts', ['disk' =>   'my_files']);
@@ -46,7 +43,7 @@ class PartsController extends Controller
             $data['part_id'] = $parts->id;
             $codes = $request->post('code');
 
-            if ($request->post('code')) {
+            if (isset($codes)) {
                 foreach ($codes as $code) {
                     if ($code) {
                         $data['code'] = $code;

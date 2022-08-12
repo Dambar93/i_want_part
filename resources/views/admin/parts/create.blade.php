@@ -9,14 +9,14 @@
             <div class="col-xs-10 col-sm-10 col-md-10">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    <input type="text" name="title" value="{{ old('title') }}" class="form-control @error('title') is-invalid @enderror" placeholder="Title">
+                    <input required type="text" name="title" value="{{ old('title') }}" class="form-control @error('title') is-invalid @enderror" placeholder="Title">
                     @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10">
                 <div class="form-group">
                     <strong>SKU:</strong>
-                    <input type="text" name="sku" value="{{ old('sku') }}" class="form-control @error('sku') is-invalid @enderror" placeholder="SKU">
+                    <input required type="text" name="sku" value="{{ old('sku') }}" class="form-control @error('sku') is-invalid @enderror" placeholder="SKU">
                     @error('sku')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
@@ -33,7 +33,7 @@
             <div class="col-xs-10 col-sm-10 col-md-10">
                 <div class="form-group">
                     <strong>Main Part Code:</strong>
-                    <input type="text" name="part_code" value="{{ old('part_code') }}" class="form-control @error('part_code') is-invalid @enderror" placeholder="Part Code">
+                    <input required type="text" name="part_code" value="{{ old('part_code') }}" class="form-control @error('part_code') is-invalid @enderror" placeholder="Part Code">
                     @error('part_code')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     <strong>Category:</strong>
                     <select class="form-select" name="category_id"  >
-                        <option value="">--</option>
+                        
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -73,7 +73,7 @@
                 <div class="form-group">
                     <strong>Manufacture:</strong>
                     <select class="form-select" name="manufacture_id"  >
-                        <option value="">--</option>
+                        
                         @foreach($manufactures as $manufacture)
                             <option value="{{ $manufacture->id }}">{{ $manufacture->name }}</option>
                         @endforeach
@@ -85,7 +85,7 @@
                 <div class="form-group">
                     <strong>Car:</strong>
                     <select class="form-select" name="car_id"  >
-                        <option value="">--</option>
+                        
                         @foreach($cars as $car)
                             <option value="{{ $car->id }}">{{ $car->manufacture->name}}, {{$car->model}}, {{$car->year}} year, {{$car->fuel_type}}, {{$car->engine_displacement}} &#13220, {{$car->power}} Kw, {{$car->gearbox}}, {{$car->body_type}} </option>
                         @endforeach
@@ -96,14 +96,14 @@
             <div class="col-xs-10 col-sm-10 col-md-10">
                 <div class="form-group">
                     <strong>Price:</strong>
-                    <input type="number" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="Price in $">
+                    <input required type="number" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="Price in $">
                     @error('price')<div class="invalid-feedback">{{ $message }} </div>@enderror
                 </div>
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10">
                 <div class="form-group">
                     <strong>Quantity:</strong>
-                    <input type="number" name="quantity" value="{{ old('quantity') }}" class="form-control @error('quantity') is-invalid @enderror" placeholder="Quantity">
+                    <input required type="number" name="quantity" value="{{ old('quantity') }}" class="form-control @error('quantity') is-invalid @enderror" placeholder="Quantity">
                     @error('quantity')<div class="invalid-feedback">{{ $message }} </div>@enderror
                 </div>
             </div>
@@ -112,7 +112,7 @@
             <div class="col-xs-10 col-sm-10 col-md-10">
                 <div class="form-group">
                     <strong>Image:</strong>
-                    <input type="file" name="image[]"  placeholder="Image" accept="image/jpeg, image/png" multiple>
+                    <input required type="file" name="image[]"  placeholder="Image" accept="image/jpeg, image/png" multiple>
                    
                 </div>
             </div>
