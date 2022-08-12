@@ -17,5 +17,4 @@ class Picture extends Model
     {
         return $this->belongsTo(Parts::class);
     }
-
 }

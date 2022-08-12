@@ -11,10 +11,9 @@ class CarController extends Controller
 {
     public function list()
     {
-        $cars=Car::paginate(10);
+        $cars = Car::paginate(10);
 
         return view('admin.cars.list', compact('cars'));
-
     }
 
     public function create(Request $request)
@@ -22,14 +21,14 @@ class CarController extends Controller
         if ($request->isMethod('post')) {
              $request->validate([
                 'manufacture_id' => 'required',
-            ]);
+             ]);
 
             Car::create($request->all());
 
             return redirect('admin/cars')
                 ->with('success', 'Car created successfully!');
         }
-        $manufactures=Manufacture::all();
+        $manufactures = Manufacture::all();
         
         return view('admin.cars.create', compact('manufactures'));
     }
@@ -40,18 +39,18 @@ class CarController extends Controller
         if ($request->isMethod('post')) {
             $request->validate([
                 'manufacture_id' => 'required',
-           ]);
+            ]);
 
-           $car->update($request->all());
+            $car->update($request->all());
 
-           return redirect('admin/cars')
+            return redirect('admin/cars')
                ->with('success', 'Cars updated successfully!');
-       }
+        }
 
-       $manufactures=Manufacture::all();
+        $manufactures = Manufacture::all();
 
 
-       return view('admin.cars.edit', compact('manufactures', 'car'));
+        return view('admin.cars.edit', compact('manufactures', 'car'));
     }
 
     public function destroy(Car $car) //work on no parts on that category

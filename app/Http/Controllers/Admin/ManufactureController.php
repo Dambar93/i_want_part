@@ -6,12 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Manufacture;
 
-
 class ManufactureController extends Controller
 {
     public function list()
     {
-        $manufactures=Manufacture::paginate(10);
+        $manufactures = Manufacture::paginate(10);
 
 
         return view('admin.manufacture.list', compact('manufactures'));
@@ -22,7 +21,7 @@ class ManufactureController extends Controller
         if ($request->isMethod('post')) {
              $request->validate([
                 'name' => 'required',
-            ]);
+             ]);
 
             Manufacture::create($request->all());
 
@@ -40,18 +39,18 @@ class ManufactureController extends Controller
         if ($request->isMethod('post')) {
             $request->validate([
                 'manufacture_id' => 'required',
-           ]);
+            ]);
 
-           $car->update($request->all());
+            $car->update($request->all());
 
-           return redirect('admin/cars')
+            return redirect('admin/cars')
                ->with('success', 'Cars updated successfully!');
-       }
+        }
 
-       $manufactures=Manufacture::all();
+        $manufactures = Manufacture::all();
 
 
-       return view('admin.cars.edit', compact('manufactures', 'car'));
+        return view('admin.cars.edit', compact('manufactures', 'car'));
     }
 
     public function destroy(Manufacture $manufacture) //work on no parts on that category

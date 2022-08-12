@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function show(Request $request) {
+    public function show(Request $request)
+    {
         return view('auth.show');
     }
 
-    public function auth(AuthRequest $request) {
+    public function auth(AuthRequest $request)
+    {
         $credentials = $request->validated();
 
         if (Auth::attempt($credentials, $request->input('rememberMe'))) {

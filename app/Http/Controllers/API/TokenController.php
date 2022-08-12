@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class TokenController extends Controller
 {
-    public function getToken(Request $request): Response|array
+    public function getToken(Request $request): Response | array
     {
         $validation = Validator::make(
             $request->all(),

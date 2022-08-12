@@ -19,5 +19,4 @@ class Manufacture extends Model
     {
         return $this->hasMany(Part::class);
     }
-
 }

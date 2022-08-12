@@ -11,7 +11,6 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use App\Http\Controllers\Controller;
 
-
 class RegisterController extends Controller
 {
 

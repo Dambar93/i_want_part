@@ -39,7 +39,8 @@ class RequestLoggerMiddleware
         file_put_contents(
             storage_path() . '/response.log',
             date('Y-m-d H:i:s') . ': /' . $request->path() . ' | response: ' .
-            json_encode(['statusCode' => $response->getStatusCode(), 'content' => $response->getContent(), 'duration' => $duration . 'ms']) .
+            json_encode(['statusCode' => $response->getStatusCode(),
+            'content' => $response->getContent(), 'duration' => $duration . 'ms']) .
             PHP_EOL,
             FILE_APPEND
         );

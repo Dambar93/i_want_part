@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+
 // use Illuminate\Database\Schema\Grammars\MySqlGrammar;
 
 
@@ -13,7 +14,7 @@ class CategoryController extends Controller
 {
     public function list()
     {
-        $categories=Category::paginate(10);
+        $categories = Category::paginate(10);
 
 
         return view('admin.category.list', compact('categories'));
@@ -24,7 +25,7 @@ class CategoryController extends Controller
         if ($request->isMethod('post')) {
              $request->validate([
                 'name' => 'required|between:2,100',
-            ]);
+             ]);
 
             Category::create($request->all());
 
@@ -56,18 +57,17 @@ class CategoryController extends Controller
         if ($request->isMethod('post')) {
             $request->validate([
                'name' => 'required|between:2,100',
-           ]);
+            ]);
 
-           $category->update($request->all());
+            $category->update($request->all());
 
-           return redirect('admin/category')
+            return redirect('admin/category')
                ->with('success', 'Category updated successfully!');
-       }
+        }
 
-       $firstLevelCategories = Category::where('category_id', null)->get();
+        $firstLevelCategories = Category::where('category_id', null)->get();
 
 
-       return view('admin.category.edit', compact('firstLevelCategories', 'category'));
+        return view('admin.category.edit', compact('firstLevelCategories', 'category'));
     }
-
 }

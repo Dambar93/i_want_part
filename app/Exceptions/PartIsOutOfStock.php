@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Log;
 
 class PartIsOutOfStock extends Exception
 {
-    public function report () {
+    public function report()
+    {
         Log::debug('Part is out of stock');
     }
 }

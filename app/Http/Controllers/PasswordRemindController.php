@@ -35,8 +35,7 @@ class PasswordRemindController extends Controller
 
             //Susti mail
             file_put_contents(storage_path() . '/email.log', 'Email change link: ' .
-                URL::route('password_reminder.change', ['token' => $token, 'email' => $user->email])
-            );
+                URL::route('password_reminder.change', ['token' => $token, 'email' => $user->email]));
 
             return Redirect::route('login')->with('success', 'Password link generated');
         }

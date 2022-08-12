@@ -13,24 +13,21 @@ use App\Models\Manufacture;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
-
 class PartsController extends Controller
 {
     public function list()
     {
         // $parts=Part::all();
-        $parts=Part::paginate(10);
+        $parts = Part::paginate(10);
 
 
         return view('admin.parts.list', compact('parts'));
-           
     }
 
     public function create(Request $request)
     {
         if ($request->isMethod('POST')) {
-            
-            $data=$request->all();
+            $data = $request->all();
             $parts = Part::create($data);
             $category = Category::find($request->post('category_id'));
             $parts->category()->associate($category);
@@ -39,26 +36,27 @@ class PartsController extends Controller
             // $parts->pictures()->image = $imagePath;
 
             foreach ($request->file('image') as $imagefile) {
-                $image = new Picture;
+                $image = new Picture();
                 $path = $imagefile->store('/images/parts', ['disk' =>   'my_files']);
                 $image->image = $path;
                 $image->part_id = $parts->id;
                 $image->save();
             }
           
-            $data['part_id']=$parts->id;
-            $codes=$request->post('code');
+            $data['part_id'] = $parts->id;
+            $codes = $request->post('code');
 
-            if($request->post('code')){
-                foreach($codes as $code){
-                    if($code){
-                        $data['code']=$code;
+            if ($request->post('code')) {
+                foreach ($codes as $code) {
+                    if ($code) {
+                        $data['code'] = $code;
                         Code::create($data);
-                    }                
-                }}
+                    }
+                }
+            }
             
            
-            $parts-> save(); 
+            $parts-> save();
 
 
             return redirect('admin/parts')
@@ -67,7 +65,7 @@ class PartsController extends Controller
         $categories = Category::whereNotNull('category_id')
         
         ->get();
-        $manufactures= Manufacture::all();
+        $manufactures = Manufacture::all();
         $parts = Part::all();
         $cars = Car::all();
 
@@ -77,36 +75,37 @@ class PartsController extends Controller
     public function edit(Request $request, Part $part)
     {
         if ($request->isMethod('POST')) {
-            
-            $data=$request->all();
+            $data = $request->all();
             $part -> update($data);
             
 
-            $data['part_id']=$part->id;
+            $data['part_id'] = $part->id;
 
-            $codes=$request->post('code');
+            $codes = $request->post('code');
 
             Code::where('part_id', $part->id)
-            ->delete();  
-            if($request->post('code')){
-            foreach($codes as $code){
-                if($code){
-                    $data['code']=$code;
-                    Code::create($data);
-                }                
-            }}
+            ->delete();
+            if ($request->post('code')) {
+                foreach ($codes as $code) {
+                    if ($code) {
+                        $data['code'] = $code;
+                        Code::create($data);
+                    }
+                }
+            }
             
-            if($request->file('image')){
-            foreach ($request->file('image') as $imagefile) {
-                $image = new Picture;
-                $path = $imagefile->store('/images/parts', ['disk' =>   'my_files']);
-                $image->image = $path;
-                $image->part_id = $part->id;
-                $image->save();
-            }}
+            if ($request->file('image')) {
+                foreach ($request->file('image') as $imagefile) {
+                    $image = new Picture();
+                    $path = $imagefile->store('/images/parts', ['disk' =>   'my_files']);
+                    $image->image = $path;
+                    $image->part_id = $part->id;
+                    $image->save();
+                }
+            }
             //dd($part->pictures);
            
-            $part -> save(); 
+            $part -> save();
 
 
 
@@ -114,10 +113,10 @@ class PartsController extends Controller
                 ->with('success', 'Part edited successfully!');
         }
 
-        $categories = Category::whereNotNull('category_id')        
+        $categories = Category::whereNotNull('category_id')
         ->get();
 
-        $manufactures= Manufacture::all();
+        $manufactures = Manufacture::all();
         
         $cars = Car::all();
 
@@ -126,10 +125,10 @@ class PartsController extends Controller
 
     public function deleteImage(Picture $image)
     {
-        $part=$image-> part_id;
+        $part = $image-> part_id;
         File::delete($image-> image);
         $image->delete();
-        return redirect(route('admin.part.edit',$part));
+        return redirect(route('admin.part.edit', $part));
     }
 
    
@@ -137,22 +136,19 @@ class PartsController extends Controller
     public function show(int $id)
     {
         $part = Part::find($id);
-        $i=0;
-        return view ('admin.parts.show', compact('part', 'i'));
+        $i = 0;
+        return view('admin.parts.show', compact('part', 'i'));
     }
 
-    public function destroy(Part $part) 
+    public function destroy(Part $part)
     {
         // $category->steps->delete();
         // MySqlGrammar::compileDisableForeignKeyConstraint();
-        foreach($part-> pictures as $image)
-        {
+        foreach ($part-> pictures as $image) {
             File::delete($image-> image);
         }
         $part->delete();
         return redirect(route('admin.parts.list'))
                 ->with('success', 'Part deleted successfully!');
     }
-
-
 }

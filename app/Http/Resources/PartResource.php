@@ -16,9 +16,9 @@ class PartResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,           
-            'comment'=>$this->comment,
-            'part_code'=>$this->part_code,
+            'title' => $this->title,
+            'comment' => $this->comment,
+            'part_code' => $this->part_code,
             'condition' => $this->condition,
             'price' => $this->price,
             'quantity' => $this->quantity,
@@ -26,7 +26,7 @@ class PartResource extends JsonResource
             'manufacture' => $this-> manufacture -> name,
             'images' => PictureResource::collection($this->pictures),
             'other_codes' => CodesResource::collection($this->codes),
-            'car' => $this -> car,           
+            'car' => $this -> car,
         ];
     }
 }

@@ -19,5 +19,4 @@ class Car extends Model
     {
         return $this->belongsTo(Manufacture::class);
     }
-
 }
