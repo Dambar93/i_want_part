@@ -24,18 +24,6 @@
                     </select>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-check">
-                    <input type="checkbox" name="active" value="1" id="flexCheckChecked" class="form-check-input"
-                           @if (old('active'))
-                           checked
-                        @endif
-                    >
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Active
-                    </label>
-                </div>
-            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

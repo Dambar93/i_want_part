@@ -25,7 +25,6 @@
                 <td>{{ $manufacture->id }}</td>
                 <td>{{ $manufacture->name }}</td>
                 <td>
-                    <button class="btn btn-primary"><a style="text-decoration: none; color: white" href="">Edit</a></button>
                     <form action="{{route('admin.manufacture.destroy',$manufacture->id)}}" method="post">
                         @csrf
                         @method("DELETE")

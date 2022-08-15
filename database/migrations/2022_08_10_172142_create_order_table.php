@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('unique_id');
             $table->string('email');
             $table->string('status');
+            $table->string('buyer');
             $table->foreignId('address_id')->references('id')->on('addresses');
             $table->timestamps();
         });

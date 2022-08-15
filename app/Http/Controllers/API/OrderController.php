@@ -24,12 +24,12 @@ class OrderController extends Controller
             DB::beginTransaction();
         
             $data = $request->validate([
-                'name' => 'required',
+                'buyer' => 'required',
                 'country' => 'required',
                 'city' => 'required',
                 'address' => 'required',
                 'zip' => 'required',
-                'email' => 'required',
+                'email' => 'required|email',
                 'phone' => 'required',
                 'items' => 'array'
 
