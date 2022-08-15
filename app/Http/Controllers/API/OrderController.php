@@ -23,7 +23,17 @@ class OrderController extends Controller
         try {
             DB::beginTransaction();
         
-            $data = $request->all();
+            $data = $request->validate([
+                'name' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'address' => 'required',
+                'zip' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'items' => 'array'
+
+            ]);
             $address = Address::create($data);
             $data['status'] = 'pending';
             $data['address_id'] = $address -> id;

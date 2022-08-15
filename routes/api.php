@@ -28,6 +28,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::apiResource('part-list', 'App\Http\Controllers\API\PartController');
 Route::post('get-token','App\Http\Controllers\API\TokenController@getToken');
 Route::post('register','App\Http\Controllers\API\RegisterController@register');
-Route::post('order','App\Http\Controllers\API\OrderController@create');
+Route::post('create-order','App\Http\Controllers\API\OrderController@create');
 Route::post('find-order','App\Http\Controllers\API\OrderController@findOrder');
 

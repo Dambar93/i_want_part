@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <strong>Manufacture:</strong>
                     <select class="form-select" name="manufacture_id">
-                        <option value="">--</option>
+                        
                         @foreach($manufactures as $manufacture)
                         <option value="{{ $manufacture->id }}">{{ $manufacture->name }}</option>
                         @endforeach
@@ -21,14 +21,14 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Model:</strong>
-                    <input type="text" name="model" value="{{ old('model') }}" class="form-control @error('model') is-invalid @enderror" placeholder="Model">
+                    <input required type="text" name="model" value="{{ old('model') }}" class="form-control @error('model') is-invalid @enderror" placeholder="Model">
                     @error('model')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Year:</strong>
-                    <input type="number" name="year" value="{{ old('year') }}" class="form-control @error('year') is-invalid @enderror" placeholder="Year">
+                    <input required type="number" name="year" value="{{ old('year') }}" class="form-control @error('year') is-invalid @enderror" placeholder="Year">
                     @error('year')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Engine code:</strong>
-                    <input type="text" name="engine_code" value="{{ old('engine_code') }}" class="form-control @error('engine_code') is-invalid @enderror" placeholder="Engine code">
+                    <input required type="text" name="engine_code" value="{{ old('engine_code') }}" class="form-control @error('engine_code') is-invalid @enderror" placeholder="Engine code">
                     @error('engine_code')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
@@ -93,28 +93,28 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Odometer km stand:</strong>
-                    <input type="number" name="km" value="{{ old('km') }}" class="form-control @error('km') is-invalid @enderror" placeholder="Km">
+                    <input required type="number" name="km" value="{{ old('km') }}" class="form-control @error('km') is-invalid @enderror" placeholder="Km">
                     @error('km')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Engine displacement:</strong>
-                    <input type="number" name="engine_displacement" value="{{ old('engine_displacement') }}" class="form-control @error('engine_displacement') is-invalid @enderror" placeholder="Cubic centimeters &#13220">
+                    <input required type="number" name="engine_displacement" value="{{ old('engine_displacement') }}" class="form-control @error('engine_displacement') is-invalid @enderror" placeholder="Cubic centimeters &#13220">
                     @error('engine_displacement')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Power:</strong>
-                    <input type="number" name="power" value="{{ old('power') }}" class="form-control @error('power') is-invalid @enderror" placeholder="Power in Kw">
+                    <input required type="number" name="power" value="{{ old('power') }}" class="form-control @error('power') is-invalid @enderror" placeholder="Power in Kw">
                     @error('power')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Color:</strong>
-                    <input type="text" name="color" value="{{ old('color') }}" class="form-control @error('color') is-invalid @enderror" placeholder="Color or color code">
+                    <input required type="text" name="color" value="{{ old('color') }}" class="form-control @error('color') is-invalid @enderror" placeholder="Color or color code">
                     @error('color')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
             </div>
