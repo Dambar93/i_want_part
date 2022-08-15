@@ -1,29 +1,29 @@
 require('./bootstrap');
 
-$(document).ready(function(){
-    var maxField = 10; 
-    var addButton = $('.add_button'); 
-    var wrapper = $('.field_wrapper'); 
-    var fieldHTML = `<div><input type="text" name="code[]" value="" placeholder="Additional part Code" /><a href="javascript:void(0);" class="remove_button">Remove code</a></div>`; 
+$(document).ready(function () {
+    var maxField = 10;
+    var addButton = $('.add_button');
+    var wrapper = $('.field_wrapper');
+    var fieldHTML = ` < div > < input type = "text" name = "code[]" value = "" placeholder = "Additional part Code" /  > < a href = "javascript:void(0);" class = "remove_button" > Remove code < / a > < / div > `;
     var x = 1;
     
-    $(addButton).click(function(){
+    $(addButton).click(function () {
         
-        if(x < maxField){ 
+        if (x < maxField) {
             x++;
-            $(wrapper).append(fieldHTML); 
+            $(wrapper).append(fieldHTML);
         }
     });
     
-    $(wrapper).on('click', '.remove_button', function(e){
+    $(wrapper).on('click', '.remove_button', function (e) {
         e.preventDefault();
-        $(this).parent('div').remove(); 
-        x--; 
+        $(this).parent('div').remove();
+        x--;
     });
 
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
     var zoom = document.getElementsByClassName("carousel-item");
     var undoZoom = document.getElementById("close-overlay");
     var zoom1 = document.getElementById("gallery");
@@ -42,21 +42,24 @@ window.onload = () => {
     let all = document.getElementsByClassName("zoomE");
    
     // (B) CLICK TO GO FULLSCREEN
-    if (all.length>0) { for (let i of all) {
-      i.onclick = () => {
-        // (B1) EXIT FULLSCREEN
-        if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
-          if (document.exitFullscreen) { document.exitFullscreen(); }
-          else { document.webkitCancelFullScreen(); }
-        }
+    if (all.length > 0) {
+        for (let i of all) {
+            i.onclick = () => {
+              // (B1) EXIT FULLSCREEN
+                if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen(); } else {
+                              document.webkitCancelFullScreen(); }
+                }
    
-        // (B2) ENTER FULLSCREEN
-        else {
-          if (i.requestFullscreen) { i.requestFullscreen(); }
-          else { i.webkitRequestFullScreen(); }
-        }
-      };
-    }}
+              // (B2) ENTER FULLSCREEN
+                else {
+                    if (i.requestFullscreen) {
+                        i.requestFullscreen(); } else {
+                                    i.webkitRequestFullScreen(); }
+                }
+            };
+        }}
   };
 
 

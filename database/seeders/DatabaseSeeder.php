@@ -11,7 +11,6 @@ use \App\Models\Part;
 use \App\Models\Picture;
 use \App\Models\Car;
 use App\Models\Role;
-
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -36,7 +35,7 @@ class DatabaseSeeder extends Seeder
         //     'password'=> Hash::make('123456'),
         //     'role'=>'ROLE_CONTENT_MANAGER'
 
-        // ]);  
+        // ]);
 
         Category::factory(1)->create();
         Category::factory(1)->create([
@@ -59,11 +58,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@test.test',
         //     'password' => Hash::make('12345678')
         // ]);
-        for($i=1; $i < 41; $i++){
+        for ($i = 1; $i < 41; $i++) {
             Picture::factory(1)->create([
                 'part_id' => $i
-            ]
-            );
+            ]);
         }
         Role::factory(1)->create(['name' => 'ROLE_ADMIN']);
         Role::factory(1)->create(['name' => 'ROLE_USER']);
@@ -80,6 +78,5 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role' => User::ROLE_USER
         ]);
-        
     }
 }

@@ -18,7 +18,7 @@ class CarFactory extends Factory
     {
         return [
             'manufacture_id' => 1,
-            'model'=> 'E46',
+            'model' => 'E46',
             'fuel_type' => 'diesel',
             'wheel_placement' => 'left',
             'engine_code' => 'N47',

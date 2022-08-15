@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pictures', function (Blueprint $table) {
-            $table->id();    
+            $table->id();
             $table->foreignId('part_id')->references('id')->on('parts')->onDelete('cascade');
             $table->text('image');
             $table->timestamps();
