@@ -12,12 +12,6 @@ use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
-    // 1. formos
-    // 2. prisidėsim gimimo datą
-    // 3. form action
-    // 4. submit actions
-    // 5. validuot duomenis
-    // 6. prisiregistravus iškart prijungti ir nukreipti į profile page.
     public function show()
     {
         return view('register.index');

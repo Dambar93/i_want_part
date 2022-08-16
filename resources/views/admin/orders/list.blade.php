@@ -16,12 +16,14 @@
             <td>ID</td>
             <td>Order unique ID</td>
             <td>Order status</td>            
+            <td>Ordering date and time</td>            
         </tr>
         @foreach($orders as $order)
             <tr>
                 <td>{{ $order->id }}</td>
                 <td><a href="{{route('admin.order.show',$order->id)}}">{{ $order->unique_id }}</a></td>
                 <td>{{ $order->status }}</td>
+                <td>{{ $order->created_at }}</td>
             </tr>
         @endforeach
     </table>

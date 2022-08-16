@@ -45,8 +45,6 @@ class CategoryController extends Controller
 
     public function destroy(Category $category) //work on no parts on that category
     {
-        // $category->steps->delete();
-        // MySqlGrammar::compileDisableForeignKeyConstraint();
         $category->delete();
         return redirect(route('admin.category.list'))
                 ->with('success', 'Category deleted successfully!');

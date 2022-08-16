@@ -53,10 +53,8 @@ class ManufactureController extends Controller
         return view('admin.cars.edit', compact('manufactures', 'car'));
     }
 
-    public function destroy(Manufacture $manufacture) //work on no parts on that category
+    public function destroy(Manufacture $manufacture)
     {
-        // $category->steps->delete();
-        // MySqlGrammar::compileDisableForeignKeyConstraint();
         $manufacture->delete();
         return redirect(route('admin.manufacture.list'))
                 ->with('success', 'Manufacture deleted successfully!');

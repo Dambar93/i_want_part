@@ -17,7 +17,6 @@ class PartsController extends Controller
 {
     public function list()
     {
-        // $parts=Part::all();
         $parts = Part::paginate(10);
 
 
@@ -100,11 +99,8 @@ class PartsController extends Controller
                     $image->save();
                 }
             }
-            //dd($part->pictures);
-           
+
             $part -> save();
-
-
 
             return redirect('admin/parts')
                 ->with('success', 'Part edited successfully!');
@@ -139,8 +135,6 @@ class PartsController extends Controller
 
     public function destroy(Part $part)
     {
-        // $category->steps->delete();
-        // MySqlGrammar::compileDisableForeignKeyConstraint();
         foreach ($part-> pictures as $image) {
             File::delete($image-> image);
         }

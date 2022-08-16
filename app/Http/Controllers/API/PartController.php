@@ -17,7 +17,6 @@ class PartController extends Controller
      */
     public function index()
     {
-        // $parts=Part::all();
         $parts = Part::where('condition', '=', 'used')
         ->where('quantity', '>', '0')
         ->paginate(5);
@@ -28,7 +27,6 @@ class PartController extends Controller
 
     public function new()
     {
-        // $parts=Part::all();
         $parts = Part::where('condition', '=', 'new')
         ->where('quantity', '>', '0')
         ->paginate(5);

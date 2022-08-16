@@ -53,10 +53,9 @@ class CarController extends Controller
         return view('admin.cars.edit', compact('manufactures', 'car'));
     }
 
-    public function destroy(Car $car) //work on no parts on that category
+    public function destroy(Car $car)
     {
-        // $category->steps->delete();
-        // MySqlGrammar::compileDisableForeignKeyConstraint();
+
         $car->delete();
         return redirect(route('admin.cars.list'))
                 ->with('success', 'Car deleted successfully!');

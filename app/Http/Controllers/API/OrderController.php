@@ -80,7 +80,6 @@ class OrderController extends Controller
         $order = Order::where('email', '=', $user -> email)
         ->get();
 
-        // return new OrderCollection($order);
         return new OrderCollection($order);
     }
 
